@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunelle AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chat-container">
+
+    <div class="header">
+        Lunelle AI Assistant
+    </div>
+
+    <div id="chat-box" class="chat-box">
+
+        <div class="bot-message">
+            Halo! Saya asisten Lunelle. Ada yang bisa saya bantu?
+        </div>
+
+    </div>
+
+    <div class="input-area">
+        <input
+            type="text"
+            id="user-input"
+            placeholder="Ketik pesan..."
+        >
+
+        <button id="send-btn" onclick="window.sendMessage()">
+            Kirim
+        </button>
+    </div>
+
+</div>
+
+<script src="js/context.js"></script>
+<script src="js/handlers.js"></script>
+<script src="js/chatbot.js"></script>
+
+</body>
+</html>
