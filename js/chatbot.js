@@ -15,6 +15,18 @@ function detectIntent(message) {
         return "CYCLE";
     }
 
+    if (message.includes("makan")) {
+        return "REKOMENDASI_MAKANAN"
+    }
+
+    if (message.includes("olahraga")) {
+        return "REKOMENDASI_OLAHRAGA"
+    }
+
+    if (message.includes("fase")) {
+        return "PHASE";
+    }
+
     return "UNKNOWN";
 }
 
@@ -24,11 +36,21 @@ function generateResponse(intent, message) {
         return handleLatePeriod(message);
     }
 
+    if (context.activeFlow === "REKOMENDASI_MAKANAN") {
+        return handleRekomendasiMakanan(message);
+    }
+
+    if (context.activeFlow === "REKOMENDASI_OLAHRAGA") {
+        return handleRekomendasiOlahraga(message);
+    }
+
     switch (intent) {
         case "LATE_PERIOD": return handleLatePeriod(message);
         case "PMS":         return handlePMS();
         case "CYCLE":       return handleCycle();
-
+        case "REKOMENDASI_MAKANAN": return handleRekomendasiMakanan(message);
+        case "REKOMENDASI_OLAHRAGA": return handleRekomendasiOlahraga(message);
+        case "PHASE":       return handlePhaseExplanation(message);
         default:            return handleUnknown();
     }
 }
