@@ -31,15 +31,15 @@ body {
     background: var(--very-light-pink);
     display: flex;
     justify-content: center;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .phone {
     width: 400px;
     max-width: 100%;
-    min-height: 100vh;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -97,6 +97,7 @@ body {
 
 .chat-box {
     flex: 1;
+    min-height: 0;
     padding: 15px;
     overflow-y: auto;
     display: flex;
@@ -116,7 +117,7 @@ body {
     width: fit-content;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    white-space: normal;
+    white-space: pre-line;
 
     font-weight: 550;
     font-size: 0.95em;

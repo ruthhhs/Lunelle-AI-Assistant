@@ -8,6 +8,7 @@ function detectIntent(message) {
     if (message.includes("olahraga")) { return "REKOMENDASI_OLAHRAGA"; }
     if (message.includes("fase")) { return "PHASE"; }
     if (message.includes("kram perut") || message.includes("keram perut") || message.includes("nyeri perut") || message.includes("sakit perut")) { return "CRAMPS_FLOW"; }
+    if (message.includes("nutrisi")) { return "NUTRITION_PERIOD_FLOW"; }
     if (message.includes("mood swing") || message.includes("marah") || message.includes("sensi") || message.includes("bad mood")) { return "MOOD_SWINGS_FLOW"; }
     if (message.includes("mitos") || message.includes("bolehkah") || message.includes("bener gak")) { return "MYTH_CHECK_FLOW"; }
     if (message.includes("pusing") || message.includes("migrain") || message.includes("sakit kepala")) return "HEADACHE_FLOW";
@@ -30,7 +31,6 @@ function generateResponse(intent, message) {
     if (context.activeFlow === "CRAMPS_FLOW") return handleCramps(message);
     if (context.activeFlow === "NUTRITION_PERIOD_FLOW") return handleNutritionPeriod(message);
     if (context.activeFlow === "MOOD_SWINGS_FLOW") return handleMoodSwings(message);
-    if (context.activeFlow === "EXERCISE_FLOW") return handleExerciseRecommendation(message);
     if (context.activeFlow === "MYTH_CHECK_FLOW") return handleMythCheck(message);
     if (context.activeFlow === "HEADACHE_FLOW") return handleHeadache(message);
     if (context.activeFlow === "BLOATING_FLOW") return handleBloating(message);
@@ -50,7 +50,9 @@ function generateResponse(intent, message) {
         case "REKOMENDASI_OLAHRAGA": return handleRekomendasiOlahraga(message);
         case "PHASE": return handlePhaseExplanation(message);
         case "CRAMPS_FLOW": return handleCramps(message);
+        case "NUTRITION_PERIOD_FLOW": return handleNutritionPeriod(message);
         case "MOOD_SWINGS_FLOW": return handleMoodSwings(message);
+        case "MYTH_CHECK_FLOW": return handleMythCheck(message);
         case "HEADACHE_FLOW": return handleHeadache(message);
         case "BLOATING_FLOW": return handleBloating(message);
         case "CRAVING_FLOW": return handleCraving(message);
@@ -60,6 +62,7 @@ function generateResponse(intent, message) {
         case "DISCHARGE_FLOW": return handleDischarge(message);
         case "FATIGUE_FLOW": return handleFatigue(message);
         case "WEIGHT_GAIN_FLOW": return handleWeightGain(message);
+        case "UNKNOWN": return handleUnknown();
     }
 }
 
@@ -69,6 +72,7 @@ function addMessage(text, type) {
 
     div.className = type;
     div.textContent = text;
+    div.style.whiteSpace = "pre-line";
 
     box.appendChild(div);
     box.scrollTop = box.scrollHeight;
