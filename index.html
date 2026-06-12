@@ -5,40 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunelle AI Assistant</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Huninn&family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
 </head>
 <body>
+    
+    <main class="phone landing-container">
 
-<div class="chat-container">
+        <header class="box-header">
+            <img src="assets/logo.png" alt="Lunelle Logo" class="logo">
 
-    <div class="header">
-        Lunelle AI Assistant
-    </div>
+            <h1 class="title">Lunelle AI Assistant</h1>
 
-    <div id="chat-box" class="chat-box">
+            <p class="subtitle">
+                Teman digital yang siap menjawab pertanyaan seputar siklus menstruasi kamu.
+            </p>
 
-        <div class="bot-message">
-            Halo! Saya asisten Lunelle. Ada yang bisa saya bantu?
-        </div>
+            <button id="open-btn" onclick="location.href='chat.html'">
+                Mulai Chat
+            </button>
+        </header>
 
-    </div>
-
-    <div class="input-area">
-        <input
-            type="text"
-            id="user-input"
-            placeholder="Ketik pesan..."
-        >
-
-        <button id="send-btn" onclick="window.sendMessage()">
-            Kirim
-        </button>
-    </div>
-
-</div>
-
-<script src="js/context.js"></script>
-<script src="js/handlers.js"></script>
-<script src="js/chatbot.js"></script>
+    </main>
 
 </body>
 </html>

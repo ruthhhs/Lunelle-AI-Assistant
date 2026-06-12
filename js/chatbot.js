@@ -74,13 +74,13 @@ window.sendMessage = function () {
     const message = input.value.trim();
     if (!message) return;
 
-    addMessage(message, "user-message");
+    addMessage(message, "message user-message");
 
     const intent = detectIntent(message);
     const response = generateResponse(intent, message);
 
     setTimeout(() => {
-        addMessage(response, "bot-message");
+        addMessage(response, "message bot-message");
     }, 400);
 
     input.value = "";

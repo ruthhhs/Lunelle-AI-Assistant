@@ -1,31 +1,98 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-
-    display: flex;
-    justify-content: center;
-
-    margin-top: 40px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
 }
 
-.chat-container {
-    width: 500px;
-    height: 700px;
-    background: white;
-    border-radius: 12px;
+:root {
+    --white: #ffffff;
+    --very-light-pink: #fff4f8;
+    --light-pink: #ffe5ed;
+    --primary: #FF618A;
+    --primary-hover: #FF9EA0;
+    --secondary: #FFD3E0;
+    --black: #641e33;
+    --shadow: #a7696a20;
+}
+
+@media (max-width: 600px) {
+    .phone-container {
+        width: 100%;
+        box-shadow: none;
+    }
+    .logo {
+        width: 0px;
+    }
+}
+
+body {
+    background: var(--very-light-pink);
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.phone {
+    width: 400px;
+    max-width: 100%;
+    min-height: 100vh;
 
     display: flex;
     flex-direction: column;
     overflow: hidden;
 
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    box-shadow: 0 0 10px var(--shadow);
 }
 
-.header {
+/* ===== LANDING PAGE ===== */
+
+.landing-container {
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 80px;
+    background: var(--secondary);
+}
+
+.box-header {
+    width: 65%;
+    text-align: center;
+    /* margin: 0 auto;` */
+}
+
+.logo {
+    width: 200px;
+    margin-bottom: 80px;
+}
+
+.title {
+    font-size: 1.2em;
+    color: var(--primary);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.subtitle {
+    color: var(--black);
+    font-size: 0.8em;
+    margin-bottom: 30px;
+}
+
+/* ===== CHAT PAGE ===== */
+
+.chat-container {
+    background: var(--light-pink);
+}
+
+.chat-header {
     padding: 15px;
-    background: #ff80ab;
+    background: var(--primary);
     color: white;
     font-weight: bold;
+    font-size: 1.2em;
 }
 
 .chat-box {
@@ -37,27 +104,42 @@ body {
     gap: 10px;
 }
 
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+    background: var(--shadow);
+}
+
+.message {
+    margin: 0%;
+    padding: 10px;
+    max-width: 70%;
+    width: fit-content;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+
+    font-weight: 550;
+    font-size: 0.95em;
+}
+
 .user-message {
     align-self: flex-end;
-    background: #ff80ab;
-    color: white;
-    padding: 10px;
-    border-radius: 12px;
-    max-width: 70%;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 10px 10px 0px 10px;
 }
 
 .bot-message {
     align-self: flex-start;
-    background: #eeeeee;
-    padding: 10px;
-    border-radius: 12px;
-    max-width: 70%;
+    background: var(--white);
+    color: var(--black);
+    border-radius: 10px 10px 10px 0px;
 }
 
 .input-area {
     display: flex;
     padding: 10px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--light-pink);
 }
 
 .input-area input {
@@ -65,7 +147,70 @@ body {
     padding: 10px;
 }
 
+#user-input {
+    border: 2.5px solid var(--light-pink);
+    border-radius: 5px;
+}
+
+#user-input::placeholder {
+    color: var(--primary);
+}
+
+#user-input:focus {
+    border-color: var(--secondary);
+    outline: none;
+}
+
 .input-area button {
     margin-left: 10px;
     padding: 10px 20px;
+}
+
+/* ===== BUTTONS ===== */
+
+#open-btn {
+    border: none;
+    outline: none;
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 12px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#open-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+#open-btn:active {
+    transform: translateY(0);
+}
+
+#send-btn {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#send-btn:hover {
+    background: var(--primary-hover);
+}
+
+#back-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
 }
