@@ -21,6 +21,27 @@ function isNo(text) {
     return /\b(tidak|enggak|engga|gak|ga|nope|nggak|gakk|tidakk)\b/.test(text);
 }
 
+// ── DI LUAR TOPIK ───────────────────────────────────────────────
+function handleGreeting() {
+    return "Halo! Senang bertemu denganmu! Ada yang ingin kamu tanyakan tentang siklus menstruasi?";
+}
+
+function handleOK() {
+    return "Baik 😊. Silakan tanyakan jika ada hal yang ingin kamu ketahui.";
+}
+
+function handleThanks() {
+    return "Sama-sama 😊. Senang bisa membantu!";
+}
+
+function handleYes() {
+    return "Baik, silakan lanjutkan pertanyaannya.";
+}
+
+function handleHelp() {
+    return "Halo! Ada yang bisa aku bantu? 😊"
+}
+
 // ── LATE PERIOD ───────────────────────────────────────────────
 function handleLatePeriod(message) {
     if (!context.step) {

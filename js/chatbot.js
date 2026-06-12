@@ -1,6 +1,11 @@
 function detectIntent(message) {
     message = message.toLowerCase();
 
+    if ((message.includes("halo") || message.includes("hai") || message.includes("hello") || message.includes("hey")) && (!message.includes("telat") && !message.includes("haid") && !message.includes("menstruasi"))) { return "GREETING"; }
+    if (message === "oke" || message === "ok" || message === "baik" || message === "siap") { return "OK"; }
+    if (message.includes("terima kasih") || message.includes("terimakasi") || message.includes("makasih") || message.includes("thanks")) { return "THANKS"; }
+    if (message === "iya" || message === "ya" || message === "yap") { return "YES"; }
+    if (message.includes("bantu") || message.includes("help") || message.includes("bisa apa") || message.includes("fitur")) { return "HELP"; }
     if (message.includes("telat") || message.includes("terlambat")) { return "LATE_PERIOD"; }
     if (message.includes("pms")) { return "PMS"; }
     if (message.includes("siklus")) { return "CYCLE"; }
@@ -24,7 +29,7 @@ function detectIntent(message) {
 }
 
 function generateResponse(intent, message) {
-    // kalau sedang dalam percakapan (context aktif)
+    if (context.activeFlow === "GREETING") { return handleLatePeriod(message); }
     if (context.activeFlow === "LATE_PERIOD") { return handleLatePeriod(message); }
     if (context.activeFlow === "REKOMENDASI_MAKANAN") { return handleRekomendasiMakanan(message); }
     if (context.activeFlow === "REKOMENDASI_OLAHRAGA") { return handleRekomendasiOlahraga(message); }
@@ -43,6 +48,11 @@ function generateResponse(intent, message) {
     if (context.activeFlow === "WEIGHT_GAIN_FLOW") return handleWeightGain(message);
 
     switch (intent) {
+        case "GREETING": return handleGreeting(message);
+        case "OK": return handleOK();
+        case "THANKS": return handleThanks();
+        case "YES": return handleYes();
+        case "HELP": return handleHelp();
         case "LATE_PERIOD": return handleLatePeriod(message);
         case "PMS": return handlePMS();
         case "CYCLE": return handleCycle();
