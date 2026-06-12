@@ -52,6 +52,7 @@ body {
     padding: 10px;
     border-radius: 12px;
     max-width: 70%;
+    white-space: pre-line;
 }
 
 .input-area {

@@ -1,3 +1,7 @@
+function handleGreeting() {
+    return "Halo! Senang bertemu denganmu! Ada yang ingin kamu tanyakan tentang siklus menstruasi?";
+}
+
 function handleLatePeriod(message) {
     // STEP 1
     if (!context.step) {
